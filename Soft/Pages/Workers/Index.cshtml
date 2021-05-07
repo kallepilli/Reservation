@@ -1,0 +1,28 @@
+﻿@page
+@using ReservationProject.Core.Extensions
+@model ReservationProject.Pages.WorkersPage
+
+@{
+    Layout = "_Index";
+}
+<table class="table">
+    <thead>
+        <tr>
+            @Html.TableSortHeader(model => model.Item.FullName, Model)
+            @Html.TableSortHeader(model => model.Item.Email, Model)
+            @Html.TableSortHeader(model => model.Item.Salary, Model)
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.ItemList)
+        {
+            <tr>
+                @Html.RowData(modelItem => item.FullName)
+                @Html.RowData(modelItem => item.Email)
+                @Html.RowData(modelItem => item.Salary)
+                @Html.RowButtons(Model.PageUrl, $"{item.Id}")
+            </tr>
+        }
+    </tbody>
+</table>

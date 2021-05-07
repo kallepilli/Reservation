@@ -1,0 +1,23 @@
+﻿@model ReservationProject.Pages.Common.BasePage
+
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Details";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<h4>@Model.PageTitle</h4>
+
+<div>
+    <hr />
+    <dl class="row">
+
+        @RenderBody()
+
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-handler="Edit" asp-route-id="@Model.Item.Id">Edit</a> |
+    <a asp-page="./Index" asp-route-handler="Index">Back to List</a>
+</div>

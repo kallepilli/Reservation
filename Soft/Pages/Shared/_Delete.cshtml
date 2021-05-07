@@ -1,0 +1,30 @@
+﻿@model ReservationProject.Pages.Common.BasePage
+
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Delete";
+
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p class="text-danger">@Model.ErrorMessage</p>
+
+<h4>Are you sure you want to delete this item?</h4>
+<div>
+    <dl class="row">
+
+        @RenderBody()
+
+    </dl>
+
+    <form method="post">
+        <input type="hidden" asp-for="Item.Id" />
+        <input type="hidden" asp-for="Item.RowVersion" />
+        <div>
+            <input type="submit" value="Delete" class="btn btn-danger"/> |
+            <a asp-page="./Index" asp-route-handler="Index">Back to List</a>
+        </div>
+    </form>
+</div>
+
